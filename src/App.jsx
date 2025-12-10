@@ -471,6 +471,16 @@ export default function App() {
           <li>
             Finally, we utilize our trained classifier to detect the AI percentage of the ranked retrieved articles. Articles are evaluated paragraph by paragraph to meet BERT's maximum sequence length limit of 512 tokens. The article-level proability is then calculated as the mean of the paragraph probabilities to output a final AI-generated proability.
           </li>
+          <li>
+            <a
+                href="https://github.com/rcwright03/News-Article-Retrieval-and-AI-Detection"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-300 hover:underline"
+                >
+                  Github Repository
+                </a>
+          </li>
         </ul>
       </Section>
 
