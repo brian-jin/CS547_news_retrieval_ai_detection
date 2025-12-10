@@ -305,18 +305,6 @@ function Demo() {
         </div>
 
         <aside className="space-y-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
-            <h4 className="text-white font-semibold flex items-center gap-2">
-              <Layers className="h-4 w-4 text-amber-400" /> Pipeline
-            </h4>
-            <ul className="mt-3 space-y-2 text-sm text-slate-300 list-disc pl-5">
-              <li>Collect via APIs or crawler</li>
-              <li>Rank with BM25 Top K</li>
-              <li>Rerank with cosine and embeddings</li>
-              <li>Detect AI vs human authorship</li>
-            </ul>
-          </div>
-
           <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 space-y-3">
             <h4 className="text-white font-semibold flex items-center gap-2">
               <BarChart3 className="h-4 w-4 text-amber-400" /> Controls
@@ -340,27 +328,6 @@ function Demo() {
               />{" "}
               Use rerank
             </label>
-
-            <label className="block mt-3 text-sm">Embedding model</label>
-            <select
-              value={model}
-              onChange={(e) => setModel(e.target.value)}
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2"
-            >
-              <option value="mpnet">MPNet</option>
-              <option value="sbert">SBERT</option>
-            </select>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-sm text-slate-300">
-            <p className="mb-2 font-medium text-white">Tip</p>
-            <p>
-              When you wire the full backend, return fields:{" "}
-              <code className="bg-slate-800 px-1 py-0.5 rounded">
-                title,url,source,publishedAt,bm25,cosine,aiScore,snippet
-              </code>
-              .
-            </p>
           </div>
         </aside>
       </div>
