@@ -424,7 +424,7 @@ export default function App() {
               <Rocket className="h-4 w-4" /> Try demo
             </a>
             <a
-              href="#resources"
+              href="#about"
               className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-3 font-medium text-slate-100 hover:bg-slate-900/60"
             >
               <BookOpenText className="h-4 w-4" /> Read more
