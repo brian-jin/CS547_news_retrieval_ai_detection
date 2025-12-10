@@ -499,14 +499,12 @@ export default function App() {
                   AI Text Detection Pile (Hugging Face)
                 </a>
               </li>
-              <li>CISI</li>
-              <li>Human / AI paired text datasets</li>
+              <li>Articles are dynamically retrieved with Currents News API</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white mb-2">APIs and Libraries</h4>
+            <h4 className="font-semibold text-white mb-2">Libraries</h4>
             <ul className="list-disc pl-6 space-y-1 text-slate-300">
-              <li>Currents News API</li>
               <li>PorterStemmer</li>
               <li>requests</li>
               <li>newspaper3k</li>
