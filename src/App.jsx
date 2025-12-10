@@ -445,7 +445,10 @@ export default function App() {
       <Section id="need" title="The Value of our Tool" icon={Flame}>
         <p>
           There is an increasing prevalence of AI usage in content creation, making it difficult for readers to discern between human-written and AI generated texts. Readers are exposed to a constant stream of articles and a growing share may be
-          machine written. In fact, according to a study conducted by Graphite using web crawling & Surfer AI detection, they found that over 50% of articles are being written by AI as of 2024 with an massive growth from the launch of ChatGPT in 2022. Our tool helps users judge relevance and the likelihood of articles being AI-generated before clicking. It effectively supports students, instructors, and
+          machine written. In fact, according to a study conducted by {' '}
+    <a href="https://www.graphite.com" target="_blank" rel="noopener noreferrer">
+      Graphite
+    </a>{' '} using web crawling & Surfer AI detection, found that over 50% of articles are being written by AI as of 2024 with an massive growth from the launch of ChatGPT in 2022. Our tool helps users judge relevance and the likelihood of articles being AI-generated before clicking. It effectively supports students, instructors, and
           casual users who want reliable, and trustworthy sources of news.
         </p>
       </Section>
