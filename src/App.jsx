@@ -448,7 +448,7 @@ export default function App() {
           machine written. In fact, according to a study conducted by {' '}
           <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline">
             Graphite
-          </a>{' '} using web crawling & Surfer AI detection, found that over 50% of articles are being written by AI as of 2024 with an massive growth from the launch of ChatGPT in 2022. Our tool helps users judge relevance and the likelihood of articles being AI-generated before clicking. It effectively supports students, instructors, and
+          </a>{' '} using web crawling & Surfer AI detection, found that over 50% of articles are being written by AI as of 2024 with a massive growth from the launch of ChatGPT in 2022. Our tool helps users judge relevance and the likelihood of articles being AI-generated before clicking. It effectively supports students, instructors, and
           casual users who want reliable, and trustworthy sources of news.
         </p>
       </Section>
@@ -469,7 +469,7 @@ export default function App() {
             Next, the retrieved articles ranked based on the user's query using Okapi BM25 retrieval. This enables our tool to find the top-k candidate articles. From there, our tool utilizes a SBERT bi-encoder reranker to compute semantic similarity scores. Our double ranking system allows for a refined method to retireve the most relevant articles for the rest of our pipeline.
           </li>
           <li>
-            We trained a DistilBERT classifier, using a A100 GPU, on a custom dataset comprised of 1,879,577 labeled AI-generated and human-written essay samples. Our model was evaluated on an unseen test set from our custom dataset, as well as an out of distribution baseline set used in prior research. We note high accuracy in both the original test set, at 97.52%, and the OOD test set, at 89.77%. 
+            We trained a DistilBERT classifier, using a A100 GPU, on a custom dataset comprised of 1,879,577 labeled AI-generated and human-written essay samples (combined Kaggle + HuggingFace dataset). Our model was evaluated on an unseen test set from our custom dataset, as well as an out of distribution baseline set used in prior research. We note high accuracy in both the original test set, at 97.52%, and the OOD test set, at 89.77%. 
           </li>
           <li>
             Finally, we utilize our trained classifier to detect the AI percentage of the ranked retrieved articles. Articles are evaluated paragraph by paragraph to meet BERT's maximum sequence length limit of 512 tokens. The article-level proability is then calculated as the mean of the paragraph probabilities to output a final AI-generated proability.
