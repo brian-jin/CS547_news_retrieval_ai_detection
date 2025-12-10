@@ -15,62 +15,62 @@ import api from "./api";
 
 // ---- Site meta ----
 const SITE = {
-  title: "R&D · News Retrieval and AI Detection",
+  title: "R&D: News Retrieval and AI Detection",
   org: "Worcester Polytechnic Institute",
-  course: "CS 548 - Information Retrieval",
+  course: "CS 547 - Information Retrieval",
   instructor: "Professor Kyumin Lee",
-  date: "October 27, 2025",
+  date: "December 11, 2025",
   authors: ["Caleb Duah", "Brian Jin", "Shikshya Shiwakoti", "Ryan Wright"],
 };
 
-// ---- Local mock results (fallback if backend fails) ----
+// ---- Local mock results ----
 const MOCK_RESULTS = [
   {
     id: "a1",
-    title: "City council passes budget after marathon session",
-    source: "Local Daily",
+    title: "Adventurers Discover Atlantis",
+    source: "WPI Tech News",
     url: "https://example.com/a1",
     publishedAt: "2025-10-26",
     bm25: 7.42,
     cosine: 0.83,
     aiScore: 0.22,
     snippet:
-      "After a ten hour debate, members approved a revised spending plan that funds schools and transit...",
+      "Geologists are baffled as Atlantis has risen in the Pacific, discovered by a group of adventurers...",
   },
   {
     id: "a2",
-    title: "New study finds coral reefs show signs of recovery",
-    source: "Science Wire",
+    title: "NASA Discovers Planet Made of Ice Cream",
+    source: "WPI Tech News",
     url: "https://example.com/a2",
     publishedAt: "2025-10-25",
     bm25: 6.31,
     cosine: 0.78,
     aiScore: 0.64,
     snippet:
-      "Researchers observed improved bleaching resistance across multiple sites over three years...",
+      "Scientists estimate that the 'Ice-3c' planet could supply Earth with ice cream for the next 15,000 years...",
   },
   {
     id: "a3",
-    title: "Quarterly earnings beat expectations for chip maker",
-    source: "Market Watcher",
+    title: "Town Elects Golden Retriever as Mayor",
+    source: "WPI Tech News",
     url: "https://example.com/a3",
     publishedAt: "2025-10-24",
     bm25: 5.88,
     cosine: 0.75,
     aiScore: 0.11,
     snippet:
-      "Revenue rose thirteen percent as demand for AI accelerators held steady through Q3...",
+      "Residents say that Mayor Woof has the besrt approval ratings in decades...",
   },
   {
     id: "a4",
-    title: "Will be replaced by the backend very soon",
-    source: "Waiting for backend",
+    title: "Potatoes are the new tomatoes",
+    source: "WPI Tech News",
     url: "https://example.com/a4",
     publishedAt: "2025-10-24",
     bm25: 5.12,
     cosine: 0.70,
     aiScore: 0.35,
-    snippet: "Demo placeholder while the real search pipeline is wired in.",
+    snippet: "New research shows that potatoes may actually be the new tomatoes...",
   },
 ];
 
@@ -263,7 +263,7 @@ function Demo() {
       setItems(fromApi.length ? fromApi : MOCK_RESULTS);
     } catch (e) {
       console.error(e);
-      setError("Backend not reachable. Showing demo results instead.");
+      setError("Backend not implemented in Github static pages. Showing dummy demo results.");
       setItems(MOCK_RESULTS);
     } finally {
       setLoading(false);
@@ -305,18 +305,6 @@ function Demo() {
         </div>
 
         <aside className="space-y-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
-            <h4 className="text-white font-semibold flex items-center gap-2">
-              <Layers className="h-4 w-4 text-amber-400" /> Pipeline
-            </h4>
-            <ul className="mt-3 space-y-2 text-sm text-slate-300 list-disc pl-5">
-              <li>Collect via APIs or crawler</li>
-              <li>Rank with BM25 Top K</li>
-              <li>Rerank with cosine and embeddings</li>
-              <li>Detect AI vs human authorship</li>
-            </ul>
-          </div>
-
           <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 space-y-3">
             <h4 className="text-white font-semibold flex items-center gap-2">
               <BarChart3 className="h-4 w-4 text-amber-400" /> Controls
@@ -340,27 +328,6 @@ function Demo() {
               />{" "}
               Use rerank
             </label>
-
-            <label className="block mt-3 text-sm">Embedding model</label>
-            <select
-              value={model}
-              onChange={(e) => setModel(e.target.value)}
-              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2"
-            >
-              <option value="mpnet">MPNet</option>
-              <option value="sbert">SBERT</option>
-            </select>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-sm text-slate-300">
-            <p className="mb-2 font-medium text-white">Tip</p>
-            <p>
-              When you wire the full backend, return fields:{" "}
-              <code className="bg-slate-800 px-1 py-0.5 rounded">
-                title,url,source,publishedAt,bm25,cosine,aiScore,snippet
-              </code>
-              .
-            </p>
           </div>
         </aside>
       </div>
@@ -404,7 +371,7 @@ export default function App() {
             <a href="#compare" className="hover:text-white">
               Compare
             </a>
-            <a href="#build" className="hover:text-white">
+            <a href="#Method" className="hover:text-white">
               Build
             </a>
             <a href="#resources" className="hover:text-white">
@@ -466,50 +433,43 @@ export default function App() {
         </div>
       </header>
 
-      <Section id="about" title="What the tool does" icon={Search}>
+      <Section id="about" title="Our Tool" icon={Search}>
         <p>
-          Enter a query and the system gathers relevant news from multiple
-          sources. It ranks with Okapi BM25 for the initial order, then reranks
-          the top results using cosine similarity and embeddings to capture
-          context. Each result shows an estimated AI authorship score from a
-          classifier trained on human and AI text.
+          Our tool, R&D, collects, analyzes, and ranks news articles from different sources based on a user's query. The system gathers relevant news articles from multiple
+          sources. It ranks the retrieved articles with Okapi BM25 for the initial order. Then our tool reranks the top results using a SBERT bi-encoder reranker, which computes embeddings of the query and articles and orders them by cosine similarity to capture
+          context. Each result shows an estimated AI authorship score generated from a
+          classifier trained to distinguish human-written and AI-generated text.
         </p>
       </Section>
 
-      <Section id="need" title="Why it matters" icon={Flame}>
+      <Section id="need" title="The Value of our Tool" icon={Flame}>
         <p>
-          Readers face a constant stream of articles and a growing share may be
-          machine written. This site helps you judge relevance and likely
-          authorship before clicking. It supports students, instructors, and
-          anyone who wants quick, trustworthy discovery.
+          There is an increasing prevalence of AI usage in content creation, making it difficult for readers to discern between human-written and AI generated texts. Readers are exposed to a constant stream of articles and a growing share may be
+          machine written. In fact, according to a study conducted by Graphite using web crawling & Surfer AI detection, they found that over 50% of articles are being written by AI as of 2024 with an massive growth from the launch of ChatGPT in 2022. Our tool helps users judge relevance and the likelihood of articles being AI-generated before clicking. It effectively supports students, instructors, and
+          casual users who want reliable, and trustworthy sources of news.
         </p>
       </Section>
 
-      <Section id="compare" title="How it differs" icon={Layers}>
+      <Section id="compare" title="Our Tool vs. Existing Tools" icon={Layers}>
         <p>
-          Paste-in detectors score text you provide. This site goes further by
-          fetching articles for your query, ranking them, and showing likely AI
-          authorship inline so you can triage without opening each page.
+          Paste-in detectors, such as ZeroGPT, score text that the user provides. Our tool goes further by
+          dynamically fetching articles for user queries, ranking them based on relevance, and showing the likelihood of AI-generated content before the user even clicks into the news page. This makes for an intuitive and easy way for users to explore news topics and find the most credible content.
         </p>
       </Section>
 
-      <Section id="build" title="How we will build it" icon={BarChart3}>
+      <Section id="build" title="Our Methodology" icon={BarChart3}>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            Collect with NewsAPI, GDELT, or Currents. If needed, use a crawler
-            with BeautifulSoup and Scrapy.
+            Articles are first retrieved by sending keyword-based queries to the Current News API. This returns a JSON object that contains a collection of news items with metadata. Full article content is retrieved with the Newspaper3k library and preprocessed to create an inverted index.
           </li>
           <li>
-            Rank with BM25 and select Top K. Rerank with cosine and embeddings
-            such as SBERT or MPNet.
+            Next, the retrieved articles ranked based on the user's query using Okapi BM25 retrieval. This enables our tool to find the top-k candidate articles. From there, our tool utilizes a SBERT bi-encoder reranker to compute semantic similarity scores. Our double ranking system allows for a refined method to retireve the most relevant articles for the rest of our pipeline.
           </li>
           <li>
-            Evaluate with datasets like MSMARCO and Glasgow. Report precision,
-            recall, F1, MAP, and NDCG.
+            We trained a DistilBERT classifier, using a A100 GPU, on a custom dataset comprised of 1,879,577 labeled AI-generated and human-written essay samples. Our model was evaluated on an unseen test set from our custom dataset, as well as an out of distribution baseline set used in prior research. We note high accuracy in both the original test set, at 97.52%, and the OOD test set, at 89.77%. 
           </li>
           <li>
-            Detect AI vs human using a trained classifier. Start from public
-            baselines and refine with our data.
+            Finally, we utilize our trained classifier to detect the AI percentage of the ranked retrieved articles. Articles are evaluated paragraph by paragraph to meet BERT's maximum sequence length limit of 512 tokens. The article-level proability is then calculated as the mean of the paragraph probabilities to output a final AI-generated proability.
           </li>
         </ul>
       </Section>
@@ -517,20 +477,47 @@ export default function App() {
       <Section id="resources" title="Resources" icon={BookOpenText}>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <h4 className="font-semibold text-white mb-2">Datasets</h4>
+            <h4 className="font-semibold text-white mb-2">Classification Datasets</h4>
             <ul className="list-disc pl-6 space-y-1 text-slate-300">
-              <li>MSMARCO</li>
-              <li>Glasgow collections</li>
+              <li>
+                <a
+                href="https://www.kaggle.com/datasets/shanegerami/ai-vs-human-text"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-300 hover:underline"
+                >
+                  AI Vs Human Text Dataset (Kaggle)
+                </a>
+              </li>
+              <li>
+                <a
+                href="https://huggingface.co/datasets/artem9k/ai-text-detection-pile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-300 hover:underline"
+                >
+                  AI Text Detection Pile (Hugging Face)
+                </a>
+              </li>
               <li>CISI</li>
               <li>Human / AI paired text datasets</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white mb-2">APIs and code</h4>
+            <h4 className="font-semibold text-white mb-2">APIs and Libraries</h4>
             <ul className="list-disc pl-6 space-y-1 text-slate-300">
-              <li>NewsAPI, GDELT, Currents</li>
-              <li>BeautifulSoup and Scrapy</li>
-              <li>SBERT and MPNet embeddings</li>
+              <li>Currents News API</li>
+              <li>PorterStemmer</li>
+              <li>requests</li>
+              <li>newspaper3k</li>
+              <li>lxml_html_clean</li>
+              <li>rank_bm25</li>
+              <li>nltk</li>
+              <li>sentence_transformers</li>
+              <li>Torch</li>
+              <li>transformers</li>
+              <li>sklearn</li>
+              <li>Numpy, pandas</li>
             </ul>
           </div>
         </div>
@@ -541,7 +528,7 @@ export default function App() {
           <div className="mb-6 flex items-center gap-2">
             <Search className="h-5 w-5 text-amber-400" />
             <h2 className="text-2xl font-semibold text-white">
-              Interactive demo
+              Interactive Demo (Dummy Data)
             </h2>
           </div>
           <Demo />

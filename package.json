@@ -1,9 +1,9 @@
 {
-  "name": "CS547-news-retrieval-ai-detection",
+  "name": "CS547_new_retrieval_ai_detection",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://brian-jin.github.io/CS547-news-retrieval-ai-detection",
+  "homepage": "https://brian-jin.github.io/CS547_news_retrieval_ai_detection",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
