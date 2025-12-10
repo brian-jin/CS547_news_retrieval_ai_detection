@@ -509,6 +509,16 @@ export default function App() {
                   AI Text Detection Pile (Hugging Face)
                 </a>
               </li>
+              <li>
+                <a
+                href="https://github.com/rsickle1/human-v-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-300 hover:underline"
+                >
+                  Out of Distribution Test Dataset (Al Bataineh et al., 2025)
+                </a>
+              </li>
               <li>Articles are dynamically retrieved with Currents News API</li>
             </ul>
           </div>
